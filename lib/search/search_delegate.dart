@@ -9,11 +9,10 @@ import 'package:provider/provider.dart';
 class CharacterSearchDelegate extends SearchDelegate{
 
   @override
-  String get searchFieldLabel => 'Search Comic';
+  String get searchFieldLabel => 'Search Character';
 
   @override
   List<Widget>? buildActions(BuildContext context) {
-    // TODO: implement buildActions
     return [
       IconButton(
         onPressed: () => query = '',
@@ -24,7 +23,6 @@ class CharacterSearchDelegate extends SearchDelegate{
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
       onPressed: (){
         close(context, null);
@@ -63,12 +61,12 @@ class CharacterSearchDelegate extends SearchDelegate{
       builder: (context, snapshot) {
         if (!snapshot.hasData) return _emptyContainer();
 
-        final comic = snapshot.data!;
+        final character = snapshot.data!;
         return ListView.builder(
           itemBuilder: (context, index) {
-            return  _CharacterItem(character: comic[index]);
+            return  _CharacterItem(character: character[index]);
           },
-          itemCount: comic.length,
+          itemCount: character.length,
         ); 
       },
     );
